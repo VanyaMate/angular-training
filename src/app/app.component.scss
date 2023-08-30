@@ -1,0 +1,10 @@
+@import "/src/styles/colors";
+
+.container {
+    background: $green;
+
+    .text {
+        color: $blue;
+        font-weight: bold;
+    }
+}

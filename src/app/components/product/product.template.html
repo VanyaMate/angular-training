@@ -1,0 +1,20 @@
+<div class="container">
+    <img src="{{ product.image }}" alt="{{ product.title }}" class="image"/>
+    <h1 class="title">{{ product.title }}</h1>
+    <p class="desc">{{ product.description }}</p>
+    <span class="price">{{ product.price | currency:'RUB ' }}</span>
+    <button class="show-details"
+            (click)="toggleDetails()"
+            [ngClass]="{
+                'active': detailsShow
+            }"
+    >{{ detailsShow ? 'Hide' : 'Show'}} details</button>
+
+    <div class="additional" *ngIf="detailsShow">
+        <div
+            [ngStyle]="{fontWeight: 'bold', color: product.rating.rate > 4 ? 'green' : 'red'}"
+        >Rating: {{ product.rating.rate | number:'2.2-2' }} : {{ product.rating.count }}
+        </div>
+        <div></div>
+    </div>
+</div>
